@@ -40,27 +40,18 @@ $(document).ready(function () {
     }, 1000);
   });
 
-  controlledFish.on("keydown", function (event) {
-    const key = event.key;
-    const fish = $(this);
+  //   controlledFish.on("keydown", function (event) {
+  //     const key = event.key;
+  //     const fish = $(this);
 
-    switch (key) {
-      case "ArrowUp":
-        fish.directionY = 1;
-        // fish.css("top", fish.position().top - speed + "px");
-        break;
-      case "ArrowDown":
-        fish.directionY = -1;
-        fish.css("top", fish.position().top + speed + "px");
-        break;
-      case "ArrowLeft":
-        fish.css("left", fish.position().left - speed + "px");
-        break;
-      case "ArrowRight":
-        fish.css("left", fish.position().left + speed + "px");
-        break;
-    }
-  });
+  //     switch (key) {
+  //       case "ArrowUp":
+  //         fish.directionY = 1;
+  //         // fish.css("top", fish.position().top - speed + "px");
+  //         break;
+
+  //     }
+  //   });
 
   function createBubble(element) {
     const bubble = $("<div>").addClass("bubble");
@@ -115,7 +106,6 @@ $(document).ready(function () {
     });
     requestAnimationFrame(swim);
   }
-
   function checkCollision() {
     //how to check if 2 or more objects collide with each other
   }
