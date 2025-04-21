@@ -1,0 +1,79 @@
+.aquarium {
+  width: 600px;
+  height: 600px;
+  background-color: aqua;
+  margin: 0 auto;
+  margin-top: 30px;
+  position: relative;
+  overflow: hidden;
+}
+.fish {
+  position: absolute;
+  z-index: 99;
+  animation: swim 5s linear infinite;
+}
+.fish.flip-horizontal {
+  transform: scaleX(-1);
+}
+.fish-body {
+  width: 70px;
+  height: 40px;
+  background-color: orange;
+  border-radius: 50%;
+  border-radius: 50%;
+  position: relative;
+}
+.fish-tail,
+.fish-tail-mirror {
+  width: 30px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: orange;
+  position: absolute;
+  top: 0;
+  left: -10px;
+  transform: rotate(45deg);
+}
+#controlledFish .fish-body,
+#controlledFish .fish-tail,
+#controlledFish .fish-tail-mirror {
+  background-color: red;
+}
+.fish-tail-mirror {
+  transform: rotate(-45deg);
+  bottom: 0;
+  top: unset;
+}
+.fish-eye {
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 14px;
+  right: 12px;
+}
+.fish-pupil {
+  width: 4px;
+  height: 4px;
+  background-color: black;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    display: none;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    display: block;
+  }
+}
