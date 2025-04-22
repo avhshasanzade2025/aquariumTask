@@ -141,16 +141,50 @@ $(document).ready(function () {
       } else if (fish.y + fish.height >= aquarium.height()) {
         fish.directionY = -1;
       }
-      console.log(fish.x);
       fish.element.css({
         left: fish.x + "px",
         top: fish.y + "px",
       });
     });
-    // requestAnimationFrame(swim);
+    requestAnimationFrame(swim);
   }
 
   // Check collisions between fish
 
+  function checkCollision() {
+    for (let i = 0; i < fishes.length; i++) {
+      for (let j = i + 1; j < fishes.length; j++) {
+        const fish1 = fishes[i];
+        const fish2 = fishes[j];
+
+        if (
+          fish1.x < fish2.x + fish2.width &&
+          fish1.x + fish1.width > fish2.x &&
+          fish1.y < fish2.y + fish2.height &&
+          fish1.y + fish1.height > fish2.y
+        ) {
+          fish1.directionX *= -1;
+          fish1.directionY *= -1;
+          fish2.directionX *= -1;
+          fish2.directionY *= -1;
+
+          if (fish1.directionX === -1) {
+            fish1.element.addClass("flipped");
+          } else {
+            fish1.element.removeClass("flipped");
+          }
+
+          if (fish2.directionX === -1) {
+            fish2.element.addClass("flipped");
+          } else {
+            fish2.element.removeClass("flipped");
+          }
+        }
+      }
+    }
+    requestAnimationFrame(checkCollision);
+  }
+
+  checkCollision();
   swim();
 });

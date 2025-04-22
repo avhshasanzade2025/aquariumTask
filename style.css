@@ -8,10 +8,10 @@
   overflow: hidden;
 }
 .controls {
-  display: flex;
+  /* display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 10px; */
   margin-top: 20px;
 }
 .fish {
