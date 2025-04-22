@@ -1,18 +1,25 @@
 .aquarium {
   width: 600px;
-  height: 600px;
+  height: 80%;
   background-color: aqua;
   margin: 0 auto;
   margin-top: 30px;
   position: relative;
   overflow: hidden;
 }
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
 .fish {
   position: absolute;
   z-index: 99;
   animation: swim 5s linear infinite;
 }
-.fish.flip-horizontal {
+.fish.flipped {
   transform: scaleX(-1);
 }
 .fish-body {
